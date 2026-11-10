@@ -30,7 +30,7 @@ public class TaskServiceTest {
     // Tests findAll()
     @Test
     void findAll_ShouldReturnTaskList() {
-// Given
+    // Given
         Task task1 = new Task();
         task1.setId(1);
         task1.setTitle("Task 1");
@@ -38,10 +38,10 @@ public class TaskServiceTest {
         task2.setId(2);
         task2.setTitle("Task 2");
         when(taskRepository.findAll()).thenReturn(Arrays.asList(task1, task2));
-// When
+    // When
         List<TaskDTO> result = taskService.findAll();
 
-// Then
+    // Then
         assertThat(result).isNotNull().hasSize(2);
         assertThat(result.get(0).getTitle()).isEqualTo("Task 1");
         verify(taskRepository, times(1)).findAll();
