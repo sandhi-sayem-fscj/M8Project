@@ -97,17 +97,17 @@ public class TaskServiceTest {
         when(taskRepository.existsById(taskId)).thenReturn(true);
 // When
         taskService.deleteById(taskId);
-// Then
+    // Then
         verify(taskRepository, times(1)).deleteById(taskId);
     }
 
     // Tests deleteById throws exception when task does not exist
     @Test
     void deleteById_ShouldThrow_WhenTaskDoesNotExist() {
-// Given
+    // Given
         Integer taskId = 99;
         when(taskRepository.existsById(taskId)).thenReturn(false);
-// Then
+    // Then
         assertThatThrownBy(() -> taskService.deleteById(taskId)).isInstanceOf(RuntimeException.class)
                 .hasMessageContaining(String.valueOf(taskId));
     }
