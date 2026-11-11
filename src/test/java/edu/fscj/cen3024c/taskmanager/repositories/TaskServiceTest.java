@@ -50,7 +50,7 @@ public class TaskServiceTest {
     // Tests save(Task)
     @Test
     void save_ShouldPersistTaskEntity() {
-// Given
+    // Given
         Task taskToSave = new Task();
         taskToSave.setTitle("New Task");
         taskToSave.setStatus("Pending");
@@ -61,7 +61,7 @@ public class TaskServiceTest {
         savedTask.setStatus(taskToSave.getStatus());
         savedTask.setDueDate(taskToSave.getDueDate());
         when(taskRepository.save(any(Task.class))).thenReturn(savedTask);
-// When
+    // When
         Task result = taskService.save(taskToSave);
 
 // Then
